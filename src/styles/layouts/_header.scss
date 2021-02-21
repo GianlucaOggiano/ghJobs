@@ -1,0 +1,13 @@
+header {
+  padding: 2rem 0;
+  h3.logo {
+    width: fit-content;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: $black;
+    cursor: pointer;
+    span {
+      font-weight: 300;
+    }
+  }
+}
