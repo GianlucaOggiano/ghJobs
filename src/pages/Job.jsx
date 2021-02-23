@@ -8,7 +8,7 @@ import { fetchJob } from '../redux/actions';
 const Job = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
-  const { selectedJob, loading } = useSelector((state) => state);
+  const { selectedJob } = useSelector((state) => state);
 
   useEffect(() => {
     dispatch(fetchJob(id));
