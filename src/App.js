@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Header from './components/Header';
-import { Home } from './pages';
+import { Home, Job } from './pages';
 
 const App = () => {
   return (
@@ -8,7 +8,8 @@ const App = () => {
       <Header />
       <div className='container'>
         <Switch>
-          <Route path='/' component={Home} />
+          <Route exact path='/' component={Home} />
+          <Route path='/jobs/:id' component={Job} />
         </Switch>
       </div>
     </Router>
