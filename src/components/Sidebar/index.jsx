@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { SET_FULL_TIME } from '../../redux/types';
 import SidebarLocation from '../SidebarLocation';
