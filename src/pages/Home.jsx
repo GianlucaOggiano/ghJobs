@@ -1,19 +1,24 @@
-import { useContext } from 'react';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import JobsList from '../components/JobsList';
 import SearchBar from '../components/SearchBar';
 import Sidebar from '../components/Sidebar';
-import { GlobalContext } from '../context/GlobalContext';
+import { fetchJobs } from '../redux/actions';
 
-const Home = ({ data }) => {
-  const ctx = useContext(GlobalContext);
+const Home = () => {
+  const dispatch = useDispatch();
+  const { location } = useSelector((state) => state);
 
-  console.log(ctx.state.jobs);
+  useEffect(() => {
+    dispatch(fetchJobs(location));
+  }, [dispatch, location]);
+
   return (
     <div>
       <SearchBar />
       <main>
         <Sidebar />
-        <JobsList jobs={ctx.state.jobs} />
+        <JobsList />
       </main>
     </div>
   );
