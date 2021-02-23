@@ -1,0 +1,24 @@
+.jobSidebar {
+  width: 33%;
+  .jobSidebar__back {
+    margin-bottom: 2.2rem;
+    display: flex;
+    align-items: center;
+    svg {
+      font-size: 1.5rem;
+      margin-right: 1rem;
+    }
+    font-size: 0.875rem;
+    color: #1e86ff;
+  }
+  h5 {
+    text-transform: uppercase;
+    color: $gray;
+    margin-bottom: 1rem;
+  }
+  .jobSidebar__apply {
+    width: 80%;
+    font-size: 0.875rem;
+    word-wrap: break-word;
+  }
+}
