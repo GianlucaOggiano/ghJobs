@@ -1,20 +1,42 @@
-import { useContext } from 'react';
+import { useState } from 'react';
 import { BiWorld } from 'react-icons/bi';
-import { GlobalContext } from '../../context/GlobalContext';
+import { useDispatch, useSelector } from 'react-redux';
+import { SET_LOCATION } from '../../redux/types';
 
 const SidebarLocation = () => {
-  const {
-    state: { location },
-  } = useContext(GlobalContext);
+  const { location } = useSelector((state) => state);
+  const dispatch = useDispatch();
+  const [searchLocation, setSearchLocation] = useState('');
 
-  const radioChangeHandler = (e) => {};
+  const radioChangeHandler = (e) => {
+    console.log(e.target.value);
+    const newLocation = e.target.value;
+    dispatch({
+      type: SET_LOCATION,
+      payload: newLocation,
+    });
+    setSearchLocation('');
+  };
+
+  const searchLocationHandler = (e) => {
+    e.preventDefault();
+    dispatch({
+      type: SET_LOCATION,
+      payload: searchLocation,
+    });
+  };
 
   return (
     <div className='sidebar-location'>
       <h4>Location</h4>
-      <form className='location'>
+      <form className='location' onSubmit={searchLocationHandler}>
         <BiWorld />
-        <input type='text' placeholder='City, state, zip code or country' />
+        <input
+          type='text'
+          placeholder='City, state, zip code or country'
+          value={searchLocation}
+          onChange={(e) => setSearchLocation(e.target.value)}
+        />
       </form>
       <form className='location-choice'>
         <div className='radio'>

@@ -1,8 +1,9 @@
 import { BiWorld, BiTimeFive } from 'react-icons/bi';
+import { Link } from 'react-router-dom';
 
 const JobItem = ({ job }) => {
   return (
-    <div className='jobItem'>
+    <Link to={`/jobs/${job.id}`} className='jobItem'>
       <div className='company-logo'>
         <img src={job.company_logo} alt={`${job.company}-logo`} />
       </div>
@@ -23,7 +24,7 @@ const JobItem = ({ job }) => {
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
